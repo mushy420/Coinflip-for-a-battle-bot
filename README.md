@@ -1,38 +1,62 @@
-# Discord Gambling Bot
+# 🎲 Discord Gambling Bot 🎮
 
-A simple Discord bot with economy and gambling features.
+A sleek Discord bot gambling module with coinflip and economy features!
 
-## Features
+## ✨ Features
 
-### Coinflip Gambling
-- Interactive coinflip game using Discord buttons
-- Bet your yen on heads or tails
-- Win or lose based on the coin flip result
-- "Play Again" option for continuous fun
-- Visual feedback with animated coin GIFs
+- **🪙 Interactive Coinflip** - Bet virtual currency with slick button controls
+- **💰 MongoDB Integration** - Persistent storage for player balances
+- **📊 Stats Tracking** - See your gambling performance over time
+- **🔄 Play Again** - Quick rematch option
 
-### Economy System
-- Currency system using yen
-- Check your balance
-- Integrated with gambling features
+## 🚀 Quick Setup
 
-### Utility Commands
-- Roll dice with customizable dice notation
-- Help command to see available commands
-- Ping command to check bot latency
+1. **Add to your bot:**
+   ```python
+   # In your bot's main file
+   await bot.load_extension("gambling")
+   ```
 
-## Commands
+2. **Set up MongoDB:**
+   ```
+   # In gambling.py, update this line:
+   MONGO_URI = "your_mongodb_connection_string"
+   ```
 
-- `!cf <amount> [heads/tails]` - Flip a coin to win or lose yen
-  - Aliases: `!coinflip`
-  - If heads/tails is not specified, you'll get buttons to choose
-- `!help [command]` - Get help for commands
-- `!ping` - Check the bot's latency
-- `!roll [NdM]` - Roll dice (default: 1d20)
+3. **Install dependencies:**
+   ```
+   pip install pymongo==3.8 motor discord.py
+   ```
 
-## Setup
+4. **Run your bot!**
 
-1. Clone this repository
-2. Install required dependencies
-3. Add your Discord bot token to your environment
-4. Run the bot
+## 💬 Commands
+
+- `!cf` - Start a coinflip game with interactive buttons
+  - Select heads/tails and enter your bet amount
+  - Win double your bet or lose it all!
+
+## 🛠️ Configuration
+
+All config options are at the top of `gambling.py`:
+
+```python
+# MongoDB connection
+MONGO_URI = "mongodb://username:password@host:port/database"
+
+# Customize emojis
+HEADS_EMOJI = "🪙"
+TAILS_EMOJI = "💰" 
+
+# Media
+HEADS_GIF = "https://i.imgur.com/HavOS7J.gif"
+TAILS_GIF = "https://i.imgur.com/XnAHCmz.gif"
+```
+
+## 📝 Integration Notes
+
+- Uses hybrid commands for slash command support
+- Requires a wallet.py module for economy functions
+- All gambling stats are stored in MongoDB
+
+---
